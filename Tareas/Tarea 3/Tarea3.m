@@ -86,7 +86,7 @@ plot(x,y2,'LineStyle','-','c')
 end
 
 %Problema 7
-x=linspace(0,7);
+x=0:0.1:7;
 y1=1./x;
 y2=sin(x)./x;
 y3=-1./x;
