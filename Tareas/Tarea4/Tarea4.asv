@@ -32,49 +32,21 @@ sol = mat\vec;
 
 b0=sol(1), b1=sol(2), b2=sol(3), b3=sol(4), b4=sol(5), b5=sol(6)
 
-% -> Ejercicio 7
-
-function [] = ejercicio7(x,y)
-% 𝑦=𝑎𝑥+𝑏𝑥^2, se sugiere reescribir la ecuación de la forma:
-% 𝑦/x=𝑎+𝑏𝑥, aplicando el cambio de variable y = y/x
-% x=[-3 -2.8 -2.6 -2.4 -2.2 -2 -1.8 -1.6 -1.4 -1.2 -1 -0.8 -0.6 -0.4 -0.3 -0.2 -0.01 0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3]
-% y = [29.75 26.44 22.43 21.16 17.69 15.40 13.31 11.56 9.25
-% 6.84 5.8 2.88 3.54 0.71 -0.31 1.03 -0.68 -0.72 -0.81 -0.46 -1.43 -0.96 -0.31
-% 0.97 2.61 4.77 5.08 5.99 7.45 9.95 2.31] 
-n = length(x);
-mat = [n          sum(x);
-      sum(x)      sum(x.^2)];
-
-vec = [sum(y./x); sum(x.*(y./x))];
-
-sol=mat\vec
-
-a=sol(1); b=sol(2);
-
-x1=linspace(x(1),x(end));
-y1=a.*x1+b.*x1.^2;
-
-plot(x,y,'*',x1,y1)
-
-end
-
+% -> Ejercicio 4
 
 % -> Ejercicio 12
-function [] = ejercicio12(v,HP)
-
-% v = [5 7 9 11 12]; HP = [290 560 1144 1810 2300]; 
-
-n = length(v);
+function [] = ejercicio9(x,y)
+v = [5 7 9 11 12]; HP = [290 560 1144 1810 2300]; n = length(v);
 
 mat = [n            sum(HP.^3)
        sum(HP.^3)   sum(HP.^6)];
-vec = [sum(V);      sum(y.*HP.^3)];
+vec = [sum(y);      sum(y.*HP.^3)];
 sol = mat\vec
 
 x1 = linspace(x(1),x(end));  %linea ajustada
-y1 = sol(1) + sol(2).*x.^3;
+y1 = sol(1.*x1./(b+x1);
 
-plot(v,HP,'*',x1,y1)
+plot(x,y,'*',x1,y1)
 end
 
 

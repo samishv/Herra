@@ -1,5 +1,6 @@
-function[]=ejercicio21(c)
+function[]=ejercicio21()
 axis equal; hold on; axis off; grid;
+c=1
 a=c/5
 b=3*a
 d=sqrt((b+a)^2-a^2)
@@ -13,5 +14,5 @@ end
 function[]=circulos(h,k,r,thi,thf)
 theta=linspace(thi,thf);
 x1=h+r*cos(theta); y1=k+r*sin(theta);
-plot(x1,y1,'k')
+plot(x1,y1,'b')
 end

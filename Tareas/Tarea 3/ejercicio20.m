@@ -16,5 +16,5 @@ end
 function[]=circulos(h,k,r,thi,thf)
 theta=linspace(thi,thf);
 x1=h+r*cos(theta); y1=k+r*sin(theta);
-plot(x1,y1,'m')
+plot(x1,y1,'g')
 end

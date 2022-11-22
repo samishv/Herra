@@ -1,16 +1,17 @@
 %Problema 1
-function[]=ejercicio1(x1,y1,x2,y2)
-PMx=(x2+x1)/2
-PMy=(y2+y1)/2
-x = [x1,x2]; y = [y1,y2];
-line(x,y), hold on
-plot(PMx,PMy,'g*'), grid
-
+function [] = ejercicio1(x1,y1,x2,y2)
+a1=x1; b1=y1;
+a2=x2; b2=y2;
+disp('Las coordenadas del punto medio son:  ')
+m=[(x1+x2)/2,(y1+y2)/2]
+x=[a1,a2]; y=[b1,b2];
+line(x,y)
+grid on 
 end
 
 %Problema 2
-function [] = problema2(X1,Y1,X2,Y2,X3,Y3)
-% problema2(5,3,6,2,3,-1)
+function [] = ejercicio2(X1,Y1,X2,Y2,X3,Y3)
+% X1=5; Y1=3; X2=6; Y2=2; X3=3; Y3=-1;
 a=[X1,Y1,1; X2,Y2,1; X3,Y3,1];
 b=[-(X1^2+Y1^2); -(X2^2+Y2^2); -(X3^2+Y3^2)]
 
@@ -27,7 +28,7 @@ k=-E/2;
 th=linspace(pi,-pi);
 x=h+r*cos(th);
 y=k+r*sin(th);
-plot(x,y,'g'),axis equal
+plot(x,y,'r'),axis equal
 
 end
 
@@ -55,13 +56,13 @@ end
 
 
 %Problema 4
-function [] = Ejercicio4()
+function [] = ejercicio4()
 x=linspace(-2*pi,2*pi);
 y=sin(x-sin(x))
 plot(x,y,'LineStyle','-')
 end
 
-function [] = Ejercicio4A()
+function [] = ejercicio4A()
 x=linspace(-2*pi,2*pi);
 y=sin(x-sin(x))
 plot(x,y,'LineStyle','-')
@@ -69,23 +70,23 @@ axis equal
 end
 
 %Ejercicio 5
-function [] = Ejercicio5()
+function [] = ejercicio5()
 x=linspace(-4,4);
 y=(1./(2*x.^2))+1
 plot(x,y,'LineStyle','-')
 end
 
 %Ejercicio 6
-function [] = Ejercicio6()
+function [] = ejercicio6()
 x=linspace(-4,4);
 y1=(1./x-1)+1; y2=1./x
-
-plot(x,y1,'LineStyle','-'), hold on
-plot(x,y2,'LineStyle','-')
+hold on
+plot(x,y1,'LineStyle','-')
+plot(x,y2,'LineStyle','-','c')
 end
 
 %Problema 7
-x=0:0.1:7;
+x=linspace(0,7);
 y1=1./x;
 y2=sin(x)./x;
 y3=-1./x;
@@ -110,13 +111,13 @@ ylim([0,1.2]);
 %Problema 10
 
 x=linspace(-3,3);
-y1=(1/3).^x; y2=3.^x
+y1=(1/3).^x; y2=3.^x;
 plot(x,y1,x,y2,0,1,'o')
 ylim([0,5]);
 
 %Problema 11
 
-function[]=problema11(Pd)
+function[]=ejercicio11(Pd)
 %Pd=[13;2]
 theta=23
 Tr=[cosd(theta) -sind(theta); sind(theta) cosd(theta)];
@@ -126,19 +127,17 @@ end
 %Problema 12
 x=linspace(0.1,3);
 y=exp(x); y1=exp(x); y2=exp(x);
-
-subplot(3,1,1)
 plot(x,y)
 ylim([-5,5])
+subplot(3,1,1)
 
+plot(x,y1)
+ylim([-5,5])
 subplot(3,1,2)
-plot(x,y1)
-ylim([-5,5])
 
+plot(x,y2)
+ylim([-5,5])
 subplot(3,1,3)
-plot(x,y1)
-ylim([-5,5])
-
 
 gtext('e^x')
 gtext('primera derivada')
@@ -153,7 +152,7 @@ y=A./(1-(exp(-k.*t')./B));
 plot(t,y)
 
 %Problema 14
-function[]=problema14(a1,a2)
+function[]=ejercicio14(a1,a2)
 %a1=-0.1; a2=2;
 x1=linspace(-10,a1)
 x2=linspace(a1,a2)
@@ -166,7 +165,7 @@ ylim([-5,10])
 end
 
 %Problema 15
-function[]=problema15(ro,miu)
+function[]=ejercicio15(ro,miu)
 % ro=2; miu=0;
 x=linspace(0,5)
 p=(1./(ro.*sqrt(2.*pi))).*exp((-(x-miu).^2)./(2.*ro.^2));
@@ -187,7 +186,7 @@ y1=curva1(beta,theta); y2=curva2(beta,theta); y3=curva3(beta,theta);
 plot(x,y1,x,y2,x,y3)
 
 % Problema 17
-theta=linspace(-2,2);
+theta=linspace(-2,2)
 Ax=(9/2.*cos(theta))-3.*sin(theta);
 Ay=-4/5.*theta+(3.*cos(theta));
 A=sqrt((Ax.^2)+Ay.^2);
@@ -205,17 +204,100 @@ T=(Bx.*sind(theta)-By.*cosd(theta)-300.*cosd(theta))./sind(theta-phi);
 plot(theta,T,'r',theta,W,'g')
 
 % Problema 19
+function[]=ejercicio19mk2()
+x=[-40,40,40,-40,-40]; y=[40,40,-40,-40,40];
+line(x,y); axis equal; hold on; axis off; grid;
+circulos(-40,0,40,-pi/2,pi/2)
+circulos(40,0,40,pi/2,3*pi/2)
+circulos(0,30,10,0,2*pi)
+end
 
+function[]=circulos(h,k,r,thi,thf)
+theta=linspace(thi,thf);
+x1=h+r*cos(theta); y1=k+r*sin(theta);
+plot(x1,y1,'m')
+end
+
+%Problema 20
+function[]=ejercicio20(A,B,C)
+% A=[1,1]; B=[10,1]; C=[1,6];
+x=[A(1),B(1),C(1),A(1)]; y=[A(2),B(2),C(2),A(2)];
+line(x,y); axis equal; hold on; axis off; grid;
+a=distancia(C(1),C(2),B(1),B(2))
+b=distancia(A(1),A(2),B(1),B(2))
+c=distancia(C(1),C(2),A(1),A(2))
+r=(b+c-a)/2
+circulos(A(1)+r,A(2)+r,r,0,2*pi)
+end
+
+function[d]=distancia(x1,y1,x2,y2)
+d=sqrt((x2-x1)^2+(y2-y1)^2);
+end
+
+function[]=circulos(h,k,r,thi,thf)
+theta=linspace(thi,thf);
+x1=h+r*cos(theta); y1=k+r*sin(theta);
+plot(x1,y1,'m')
+end
+
+%Problema 21 (22)
+function[]=ejercicio21(c)
+axis equal; hold on; axis off; grid;
+a=c/5
+b=3*a
+d=sqrt((b+a)^2-a^2)
+circulos(0,0,c,0,2*pi)
+circulos(0,2*a,b,0,2*pi)
+circulos(0,-2*a,b,0,2*pi)
+circulos(0,0,a,0,2*pi)
+circulos(d,a,a,0,2*pi)
+end
+
+function[]=circulos(h,k,r,thi,thf)
+theta=linspace(thi,thf);
+x1=h+r*cos(theta); y1=k+r*sin(theta);
+plot(x1,y1,'k')
+end
+
+%Problema 23
+function [] = ejercicio23(A,B,C)
+% A=[2,4]; B=[28,7.5]; C=[7,16];
+x=[A(1),B(1),C(1),A(1)]; y=[A(2),B(2),C(2),A(2)]
+line(x,y), axis equal; hold on; axis off; grid;
+r=1
+px1=((A(1)+r*B(1))/(1+r))
+py1=((A(2)+r*B(2))/(1+r))
+px2=((B(1)+r*C(1))/(1+r))
+py2=((B(2)+r*C(2))/(1+r))
+px3=((C(1)+r*A(1))/(1+r))
+py3=((C(2)+r*A(2))/(1+r))
+x1=[px1,px2,px3,px1]; y1=[py1, py2, py3, py1];
+line(x1,y1)
+end
+
+%Problema 24
+function[]=ejercicio24()
+x1=[0,8]; y1=[16,0]; x2=[0,18]; y2=[6,0]; x3=[0,18]; y3=[16,0]; 
+line(x1,y1), axis equal, hold on
+line(x2,y2), line(x3,y3)
+circulo1(6,4,4)
+end
 
 %Problema 25
 
-x1=0; y1=0;
-x2=2; y2=0;
-x3=2; y3=2*tan(60);
-x4=0; y4=2*tan(60);
+axis equal, axis off
+a=2*tand(15);
+Xs=[0 4 4 0 0]; Ys=[0 0 4 4 0];
+line(Xs,Ys,'color','k')
 
+Xt1=[0 2 a 0]; Yt1=[0 a 2 0];
+line(Xt1,Yt1,'r')
 
-x=[x1,x2,x3,x4]
-y=[y1,y2,y3,y4]
+Xt2=[2 4 4-a 2]; Yt2=[a 0 2 a];
+line(Xt2,Yt2,'c')
 
-line(x,y)
+Xt3=[2 4-a 4 2]; Yt3=[4-a 2 4 4-a];
+line(Xt3,Yt3,'g')
+
+Xt4=[0 a 2 0]; Yt4=[4 2 4-a 4];
+line(Xt4,Yt4,'m')
